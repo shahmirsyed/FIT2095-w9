@@ -45,6 +45,6 @@ app.post('/movies', movies.createOne);
 app.get('/movies/:id', movies.getOne);
 app.put('/movies/:id', movies.updateOne);
 app.delete('/movies/:id', movies.deleteOne);
-app.post('/movies/actors/:movieId/:actorId', movies.addActor);
+app.get('/movies/actors/:movieId/:actorId', movies.addActor);
 app.get('/movies/:y1/:y2', movies.getBetweenYears);
 // app.delete('/movies/:id/actors/:aid', movies.deleteActor);

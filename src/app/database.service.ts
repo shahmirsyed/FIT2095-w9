@@ -50,9 +50,9 @@ export class DatabaseService {
     return this.http.delete(url, httpOptions);
   }
 
-  addActorToMovie(mId:string, aId:string){
+  addActorToMovie(aId:string, mId:string){
     // url to add the actor to the movie
     let url = '/movies/actors/' + mId + '/' + aId;
-    return this.http.post(url, httpOptions);
+    return this.http.get(url, httpOptions);
   }
 }

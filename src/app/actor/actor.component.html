@@ -116,6 +116,22 @@
       <td><button type="submit" class="btn btn-primary" (click)="onSelectMovie(item)">Select Movie</button></td>
     </tr>
   </table>
-  <h3> Your selected Actor is {{selectedActor.name}} and Your selected movie is {{selectedMovie.title}}</h3>
+  <!-- <h3> Your selected Actor is {{selectedActor.name}} and Your selected movie is {{selectedMovie.title}}</h3> -->
   <button type="submit" class="btn btn-primary" (click)="onAddActor()">Add Actor to Movie</button>
+  <table class="table table-striped">
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Actors</th>
+    </tr>
+    <tr>
+      <td>{{updatedMovie.title}}</td>
+      <td>{{updatedMovie.year}}</td>
+      <td>
+        <ul *ngFor="let item of updatedMovie.actors">
+          <li>{{item.name}} {{item.bYear}}</li>
+        </ul> 
+      </td>
+    </tr>
+  </table>
 </div>

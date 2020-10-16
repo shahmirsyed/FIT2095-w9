@@ -14,6 +14,7 @@ export class ActorComponent implements OnInit {
   actorId: string = "";
   // to show the list of movies available
   moviesDB: any[] = [];
+  updatedMovie = null;
 
   //selected movie and actor for section 5
   selectedActor = null;
@@ -62,9 +63,16 @@ export class ActorComponent implements OnInit {
   onAddActor(){
     this.dbService.addActorToMovie(this.selectedActor._id, this.selectedMovie._id).subscribe((data: any[]) => {
       this.onGetMovies();
+      this.onGetMovie(this.selectedMovie._id);
     });
   }
 
+  onGetMovie(movieId){
+    this.dbService.getMovie(movieId).subscribe((data: any) => {
+      // gets the actor as an object
+      this.updatedMovie = data;
+    });
+  }
   // This lifecycle callback function will be invoked with the component get initialized by Angular.
   ngOnInit() {
     this.onGetActors();
